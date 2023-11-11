@@ -1,0 +1,23 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "languageSettings": [
+    {
+      "languageId": []
+    }
+  ],
+  "words": [
+    "gfep",
+    "hlabr",
+    "mysite",
+    "nsehz",
+    "tllw",
+    "unfollow"
+  ],
+  "flagWords": [],
+  "ignorePaths": [],
+  "ignoreRegExpList": [
+    "[０-９Ａ-Ｚａ-ｚぁ-んァ-ヶ亜-熙纊-黑]+"
+  ],
+  "ignoreWords": []
+}
