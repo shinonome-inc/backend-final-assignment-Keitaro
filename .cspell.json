@@ -3,21 +3,25 @@
   "language": "en",
   "languageSettings": [
     {
-      "languageId": []
+      "languageId": [
+        "python"
+      ]
     }
   ],
   "words": [
-    "gfep",
-    "hlabr",
     "mysite",
-    "nsehz",
-    "tllw",
-    "unfollow"
+    "unfollow",
+    "unliked"
   ],
   "flagWords": [],
   "ignorePaths": [],
   "ignoreRegExpList": [
     "[０-９Ａ-Ｚａ-ｚぁ-んァ-ヶ亜-熙纊-黑]+"
   ],
-  "ignoreWords": []
+  "ignoreWords": [
+    "gfep",
+    "hlabr",
+    "nsehz",
+    "tllw"
+]
 }
