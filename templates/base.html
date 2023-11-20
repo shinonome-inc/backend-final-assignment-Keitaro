@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>{% block title %}Twitter Clone{% endblock %}</title>
-</head>
-<body>
-  <!-- header  -->
-  <header class="mb-3">
-    <nav>
-      <ul>
-				<li><a href="{% url 'welcome:welcome' %}">Twitter Clone</a></li>
-        <li><a href="{% url 'accounts:signup' %}">Sign up</a></li>
-      </ul>
-    </nav>
-  </header>
-  <!-- /header  -->
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Twitter Clone{% endblock %}</title>
+  </head>
+  <body>
+    <!-- header  -->
+    <header class="mb-3">
+      <nav>
+        <ul>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'tweets:home' %}">Home</a></li>
+          <li><a href="{% url 'accounts:user_profile' username=request.user %}">Profile</a></li>
+          <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+          {% else %}
+          <li><a href="{% url 'accounts:signup' %}">Sign up</a></li>
+          <li><a href="{% url 'accounts:login' %}">Login</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+    <!-- /header  -->
 
-  <!-- main  -->
-  <main>
-  {% block content %}
-  {% endblock %}
-  </main>
-  <!-- /main  -->
-</body>
+    <!-- main  -->
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+    <!-- /main  -->
+  </body>
 </html>
