@@ -14,3 +14,9 @@ format:
 
 fix-import:
 	isort .
+
+migration:
+	python3 manage.py makemigrations
+
+migrate:
+	python manage.py migrate

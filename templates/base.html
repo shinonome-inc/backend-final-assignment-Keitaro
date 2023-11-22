@@ -11,6 +11,7 @@
         <ul>
           {% if user.is_authenticated %}
           <li><a href="{% url 'tweets:home' %}">Home</a></li>
+          <li><a href="{% url 'tweets:create' %}">Create Tweet</a></li>
           <li><a href="{% url 'accounts:user_profile' username=request.user %}">Profile</a></li>
           <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
           {% else %}
