@@ -1,0 +1,27 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "languageSettings": [
+    {
+      "languageId": [
+        "python"
+      ]
+    }
+  ],
+  "words": [
+    "mysite",
+    "unfollow",
+    "unliked"
+  ],
+  "flagWords": [],
+  "ignorePaths": [],
+  "ignoreRegExpList": [
+    "[０-９Ａ-Ｚａ-ｚぁ-んァ-ヶ亜-熙纊-黑]+"
+  ],
+  "ignoreWords": [
+    "gfep",
+    "hlabr",
+    "nsehz",
+    "tllw"
+]
+}
