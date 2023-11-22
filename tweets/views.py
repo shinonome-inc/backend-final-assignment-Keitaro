@@ -1,13 +1,14 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
-from django.views.generic.base import TemplateView
+from django.views.generic import CreateView, ListView
 
 from .forms import CreateTweetForm
+from .models import Tweet
 
 
-class HomeView(LoginRequiredMixin, TemplateView):
+class HomeView(LoginRequiredMixin, ListView):
     template_name = "tweets/home.html"
+    model = Tweet
 
 
 class TweetCreateView(LoginRequiredMixin, CreateView):

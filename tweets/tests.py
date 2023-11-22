@@ -11,12 +11,15 @@ class TestHomeView(TestCase):
     def setUp(self):
         self.url = reverse("tweets:home")
         self.user = User.objects.create_user(username="tester", password="testpassword")
-        self.client.login(username="tester", password="testpassword")
+        self.client.force_login(self.user)
+        self.tweet = Tweet.objects.create(content="test", user=self.user)
 
     def test_success_get(self):
         response = self.client.get(self.url)
+
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "tweets/home.html")
+        self.assertQuerySetEqual(response.context["object_list"], [self.tweet])
 
 
 class TestTweetCreateView(TestCase):
