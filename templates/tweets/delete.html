@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Tweet Delete{% endblock %}
+
+{% block content %}
+<form method="post">
+	{{ form.as_p }}
+	{% csrf_token %}
+	<button type="submit">削除</button>
+</form>
+<a href="{% url 'tweets:home' %}">戻る</a>
+{% endblock %}
