@@ -7,14 +7,19 @@
 <ul>
   <li>
       ユーザー : {{tweet.user}}
+      {% if isFollowing %}
+      <a href="{% url "accounts:unfollow" username=tweet.user.username %}">フォロー中</a>
+      {% else %}
+      <a href="{% url "accounts:follow" username=tweet.user.username %}">フォローする</a>
+      {% endif %}
   </li>
-    <li>
+  <li>
       作成日時 : {{tweet.created_at}}
   </li>
+  <li>
+      ツイート： {{tweet.content}}
+  </li>
 </ul>
-<p>
-  {{tweet.content}}
-</p>
 <a href="{% url 'tweets:delete' pk=tweet.id %}">削除</a>
 <a href="{% url 'tweets:home' %}">戻る</a>
 {% endblock %}

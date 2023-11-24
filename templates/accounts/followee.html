@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Followee{% endblock %}
+
+{% block content %}
+<h1>Followee</h1>
+<ul>
+  {% for followee in user.followee.all %}
+  <li>
+      {{followee}}
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

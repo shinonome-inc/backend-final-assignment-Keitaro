@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Follow{% endblock %}
+
+{% block content %}
+<p>
+  {{ username }}をフォローしますか？
+</p>
+<form method="post">
+	{% csrf_token %}
+	<button type="submit">フォロー</button>
+</form>
+<a href="{% url "tweets:home" %}">
+  <button>キャンセル</button>
+</a>
+{% endblock %}

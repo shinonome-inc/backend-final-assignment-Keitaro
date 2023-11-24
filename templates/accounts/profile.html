@@ -4,6 +4,8 @@
 
 {% block content %}
 <h1>{{ user.username }}</h1>
+<a href="{% url "accounts:followee" username=user.username %}">followee: {{user.followee.count}}人</a>
+<a href="{% url "accounts:follower" username=user.username %}">follower: {{user.follower.count}}人</a>
 <ul>
   {% for tweet in tweets %}
   <li>

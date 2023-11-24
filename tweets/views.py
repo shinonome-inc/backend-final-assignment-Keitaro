@@ -4,6 +4,8 @@ from django.http import Http404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView
 
+from accounts.models import User
+
 from .forms import CreateTweetForm
 from .models import Tweet
 
@@ -26,6 +28,14 @@ class TweetCreateView(LoginRequiredMixin, CreateView):
 class TweetDetailView(LoginRequiredMixin, DetailView):
     template_name = "tweets/detail.html"
     model = Tweet
+    context_object_name = "tweet"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = User.objects.get(username=self.request.user.username)
+        author = User.objects.get(username=context[self.context_object_name].user.username)
+        context["isFollowing"] = user.followee.filter(username=author.username).exists()
+        return context
 
 
 class TweetDeleteView(LoginRequiredMixin, DeleteView):
