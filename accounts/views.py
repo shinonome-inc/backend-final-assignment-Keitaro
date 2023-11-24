@@ -1,12 +1,12 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
-from django.views.generic.base import TemplateView
+from django.views.generic import CreateView, ListView
 
 from mysite.settings import LOGIN_REDIRECT_URL
 
 from .forms import SignupForm
+from .models import User
 
 
 class SignupView(CreateView):
@@ -23,8 +23,6 @@ class SignupView(CreateView):
         return response
 
 
-class UserProfileView(LoginRequiredMixin, TemplateView):
+class UserProfileView(LoginRequiredMixin, ListView):
     template_name = "accounts/profile.html"
-
-    def get_context_data(self, **kwargs):
-        return super().get_context_data(**kwargs)
+    model = User
