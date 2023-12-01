@@ -10,7 +10,7 @@ from .models import Tweet
 
 class HomeView(LoginRequiredMixin, ListView):
     template_name = "tweets/home.html"
-    model = Tweet
+    model = Tweet.objects.select_related("user")
 
 
 class TweetCreateView(LoginRequiredMixin, CreateView):
