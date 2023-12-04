@@ -11,7 +11,7 @@ from .models import Tweet
 class HomeView(LoginRequiredMixin, ListView):
     template_name = "tweets/home.html"
     model = Tweet
-    queryset = Tweet.objects.select_related("user")
+    queryset = Tweet.objects.select_related("user").order_by("created_at")
 
 
 class TweetCreateView(LoginRequiredMixin, CreateView):
